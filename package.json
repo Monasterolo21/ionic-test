@@ -2,18 +2,20 @@
   "name": "ionic-test",
   "version": "0.0.1",
   "private": true,
+  "homepage": "http://monasterolo21.github.io/ionic-test",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@capacitor/app": "1.1.1",
     "@capacitor/core": "3.5.0",
     "@capacitor/haptics": "1.1.4",
-    "@capacitor/ios": "3.5.0",
     "@capacitor/keyboard": "1.2.2",
     "@capacitor/status-bar": "1.0.8",
     "@ionic/vue": "^6.0.0",
@@ -41,6 +43,7 @@
     "cypress": "^8.7.0",
     "eslint": "^8.4.1",
     "eslint-plugin-vue": "^8.2.0",
+    "gh-pages": "^3.2.3",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
     "typescript": "^4.3.5"
