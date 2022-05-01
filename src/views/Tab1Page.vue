@@ -16,11 +16,11 @@
 
       <div id="container">
         <p>
-          {{ catFact }}
+          {{ currentFact }}
         </p>
       </div>
     </ion-content>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab vertical="bottom" horizontal="end">
       <ion-fab-button @click="fetchCatFact">
         <ion-icon :icon="refreshOutline"></ion-icon>
       </ion-fab-button>
@@ -58,15 +58,15 @@ export default defineComponent({
 
   data() {
     return {
-      catFact: "",
+      currentFact: "",
     };
   },
 
   methods: {
     async fetchCatFact() {
-      const response = await fetch("https://catfact.ninja/fact");
+      const response = await fetch("https://catFact.ninja/fact");
       const data = await response.json();
-      this.catFact = data.fact;
+      this.currentFact = data.fact;
     },
   },
 

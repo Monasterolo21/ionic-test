@@ -2,10 +2,10 @@
   <div id="container">
     <strong>{{ title }}</strong>
     <p>
-      {{ catFact }}
+      {{ currentJoke }}
     </p>
 
-    <ion-button color="success" @click="fetchCatFact">
+    <ion-button color="success" @click="fetchcurrentJoke">
       Get Cat Fact
     </ion-button>
   </div>
@@ -25,7 +25,7 @@ import {
 import { IonIcon } from "@ionic/vue";
 
 export default defineComponent({
-  name: "CatFactContainer",
+  name: "currentJokeContainer",
   props: {
     title: String,
   },
@@ -36,20 +36,20 @@ export default defineComponent({
 
   data() {
     return {
-      catFact: "",
+      currentJoke: "",
     };
   },
 
   methods: {
-    async fetchCatFact() {
-      const response = await fetch("https://catfact.ninja/fact");
+    async fetchcurrentJoke() {
+      const response = await fetch("https://currentJoke.ninja/fact");
       const data = await response.json();
-      this.catFact = data.fact;
+      this.currentJoke = data.fact;
     },
   },
 
   mounted() {
-    this.fetchCatFact();
+    this.fetchcurrentJoke();
   },
 });
 </script>
