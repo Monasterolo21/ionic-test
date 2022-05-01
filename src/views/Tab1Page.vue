@@ -8,7 +8,7 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Cat Fact</ion-title>
+          <ion-title size="large">Cat Facts</ion-title>
         </ion-toolbar>
       </ion-header>
 
