@@ -5,17 +5,17 @@
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabs/tab1">
           <ion-icon :icon="fish" />
-          <ion-label>Tab 1</ion-label>
+          <ion-label>Cat Fact</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab2" href="/tabs/tab2">
-          <ion-icon :icon="triangle" />
-          <ion-label>Tab 2</ion-label>
+          <ion-icon :icon="person" />
+          <ion-label>Who Am I?</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon :icon="square" />
-          <ion-label>Tab 3</ion-label>
+          <ion-icon :icon="happyOutline" />
+          <ion-label>Jokes</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -33,7 +33,7 @@ import {
   IonPage,
   IonRouterOutlet,
 } from "@ionic/vue";
-import { fish, square, triangle } from "ionicons/icons";
+import { fish, person, happyOutline } from "ionicons/icons";
 
 export default defineComponent({
   name: "TabsPage",
@@ -49,8 +49,8 @@ export default defineComponent({
   setup() {
     return {
       fish,
-      square,
-      triangle,
+      person,
+      happyOutline,
     };
   },
 });

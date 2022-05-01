@@ -2,7 +2,9 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Fact Container</ion-title>
+        <ion-title>
+          <h1>Cat Fact</h1>
+        </ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -12,8 +14,17 @@
         </ion-toolbar>
       </ion-header>
 
-      <CatFactContainer />
+      <div id="container">
+        <p>
+          {{ catFact }}
+        </p>
+      </div>
     </ion-content>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button @click="fetchCatFact">
+        <ion-icon :icon="refreshOutline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </ion-page>
 </template>
 
@@ -26,7 +37,8 @@ import {
   IonTitle,
   IonContent,
 } from "@ionic/vue";
-import CatFactContainer from "@/components/CatFactContainer.vue";
+
+import { refreshOutline } from "ionicons/icons";
 
 export default defineComponent({
   name: "Tab1Page",
@@ -36,7 +48,49 @@ export default defineComponent({
     IonTitle,
     IonContent,
     IonPage,
-    CatFactContainer,
+  },
+
+  setup() {
+    return {
+      refreshOutline,
+    };
+  },
+
+  data() {
+    return {
+      catFact: "",
+    };
+  },
+
+  methods: {
+    async fetchCatFact() {
+      const response = await fetch("https://catfact.ninja/fact");
+      const data = await response.json();
+      this.catFact = data.fact;
+    },
+  },
+
+  mounted() {
+    this.fetchCatFact();
   },
 });
 </script>
+
+<style scoped>
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 2em;
+  font-size: 1.5em;
+}
+</style>

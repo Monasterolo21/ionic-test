@@ -22,6 +22,8 @@ import {
   IonButton,
 } from "@ionic/vue";
 
+import { IonIcon } from "@ionic/vue";
+
 export default defineComponent({
   name: "CatFactContainer",
   props: {
@@ -40,11 +42,9 @@ export default defineComponent({
 
   methods: {
     async fetchCatFact() {
-      const response = await fetch(
-        "https://cat-fact.herokuapp.com/facts/random"
-      );
+      const response = await fetch("https://catfact.ninja/fact");
       const data = await response.json();
-      this.catFact = data.text;
+      this.catFact = data.fact;
     },
   },
 
